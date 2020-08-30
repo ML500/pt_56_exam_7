@@ -14,21 +14,24 @@
 
             {% with poll.choices.all as choices %}
                 {% if choices %}
-                    <form action="{% url 'answer_create' poll.pk %}" method="post">
-                        {% csrf_token %}
-                        <h3 class="h5">Варианты ответа:</h3>
-                        <div class="form-group">
-                            {% for choice in choices.all %}
-                                <div class="form-check">
-                                    <input id="choice-{{ choice.pk }}" name="choice" type="radio"
-                                           value="{{ choice.pk }}" class="form-check-input"
-                                           {% if forloop.counter0 == 0 %}checked{% endif %}/>
-                                    <label for="choice-{{ choice.pk }}" class="form-check-label">{{ choice }}</label>
-                                </div>
-                            {% endfor %}
-                        </div>
-                        <button type="submit" class="btn btn-primary">Сохранить</button>
-                    </form>
+{#                    <form action="{% url 'answer_create' poll.pk %}" method="post">#}
+{#                        {% csrf_token %}#}
+{#                        <h3 class="h5">Варианты ответа:</h3>#}
+{#                        <div class="form-group">#}
+{#                            {% for choice in choices.all %}#}
+{#                                <div class="form-check">#}
+{#                                    <input id="choice-{{ choice.pk }}" name="choice" type="radio"#}
+{#                                           value="{{ choice.pk }}" class="form-check-input"#}
+{#                                           {% if forloop.counter0 == 0 %}checked{% endif %}/>#}
+{#                                    <label for="choice-{{ choice.pk }}" class="form-check-label">{{ choice }}</label>#}
+{#                                </div>#}
+{#                            {% endfor %}#}
+{#                        </div>#}
+{#                        <button type="submit" class="btn btn-primary">Сохранить</button>#}
+{#                    </form>#}
+                    
+                    {% url 'answer_create' poll.pk as action_url %}
+                    {% include 'partial/form.html' with action_url=action_url form_method='post' %}
                 {% else %}
                     <h3 class="h5">Нет вариантов ответа</h3>
                 {% endif %}
