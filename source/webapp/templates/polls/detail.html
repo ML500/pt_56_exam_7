@@ -13,7 +13,7 @@
         <div class="card-body">
             <h1 class="card-title h3">{{ poll.text }}</h1>
             <p class="card-subtitle my-3 text-muted">Создан: {{ poll.created_at|date:"Y-m-d H:i:s" }}</p>
-            
+
             <h3 class="h5">Варианты ответа:</h3>
             <ul>
                 {% for choice in poll.choices.all %}

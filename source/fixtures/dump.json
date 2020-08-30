@@ -160,6 +160,38 @@
   }
 },
 {
+  "model": "webapp.choice",
+  "pk": 1,
+  "fields": {
+    "text": "Test 1",
+    "poll": 20
+  }
+},
+{
+  "model": "webapp.choice",
+  "pk": 2,
+  "fields": {
+    "text": "Test 2",
+    "poll": 20
+  }
+},
+{
+  "model": "webapp.choice",
+  "pk": 3,
+  "fields": {
+    "text": "Test 3",
+    "poll": 20
+  }
+},
+{
+  "model": "webapp.choice",
+  "pk": 4,
+  "fields": {
+    "text": "Test 4",
+    "poll": 20
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
