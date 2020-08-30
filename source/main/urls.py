@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from webapp.views import IndexView
+from webapp.views import IndexView, PollAddView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view(), name='index')
+    path('', IndexView.as_view(), name='index'),
+    path('poll/add/', PollAddView.as_view(), name='poll_add')
 ]
