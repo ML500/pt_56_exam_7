@@ -7,7 +7,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}Polls{% endblock %}</title>
+    <title>{% block title %}Опросы{% endblock %}</title>
 
     {% include 'partial/base/links.html' %}
     {% block links %}{% endblock %}
@@ -23,14 +23,14 @@
     
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url "index" %}">Опросы</a></li>
                     {% block menu %}{% endblock %}
                 </ul>
                 {% block search %}
                     {% if search_form %}
                         <form class="form-inline my-2 my-lg-0" action="#" method="GET">
                             {{ search_form.search|add_class:"form-control mr-sm-2" }}
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Найти</button>
                         </form>
                     {% endif %}
                 {% endblock %}
