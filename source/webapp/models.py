@@ -28,3 +28,17 @@ class Choice(models.Model):
     class Meta:
         verbose_name = 'Вариант ответа'
         verbose_name_plural = 'Варианты ответов'
+
+
+class Answer(models.Model):
+    poll = models.ForeignKey(Poll, on_delete=models.CASCADE, verbose_name='Опрос', related_name='answers')
+    choice = models.ForeignKey(Choice, on_delete=models.CASCADE, verbose_name='Вариант ответа', related_name='answers')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Создан')
+
+    def __str__(self):
+        return f'{self.poll} - {self.choice}'
+
+    class Meta:
+        verbose_name = 'Ответ'
+        verbose_name_plural = 'Ответы'
+        ordering = ('-created_at',)

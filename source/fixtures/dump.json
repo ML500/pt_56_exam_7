@@ -192,6 +192,141 @@
   }
 },
 {
+  "model": "webapp.answer",
+  "pk": 1,
+  "fields": {
+    "poll": 20,
+    "choice": 1,
+    "created_at": "2020-08-30T19:19:02.410Z"
+  }
+},
+{
+  "model": "webapp.answer",
+  "pk": 2,
+  "fields": {
+    "poll": 20,
+    "choice": 2,
+    "created_at": "2020-08-30T19:19:02.411Z"
+  }
+},
+{
+  "model": "webapp.answer",
+  "pk": 3,
+  "fields": {
+    "poll": 20,
+    "choice": 3,
+    "created_at": "2020-08-30T19:19:02.411Z"
+  }
+},
+{
+  "model": "webapp.answer",
+  "pk": 4,
+  "fields": {
+    "poll": 20,
+    "choice": 2,
+    "created_at": "2020-08-30T19:19:02.411Z"
+  }
+},
+{
+  "model": "webapp.answer",
+  "pk": 5,
+  "fields": {
+    "poll": 20,
+    "choice": 4,
+    "created_at": "2020-08-30T19:19:02.411Z"
+  }
+},
+{
+  "model": "webapp.answer",
+  "pk": 6,
+  "fields": {
+    "poll": 20,
+    "choice": 2,
+    "created_at": "2020-08-30T19:19:02.412Z"
+  }
+},
+{
+  "model": "webapp.answer",
+  "pk": 7,
+  "fields": {
+    "poll": 20,
+    "choice": 1,
+    "created_at": "2020-08-30T19:19:02.412Z"
+  }
+},
+{
+  "model": "webapp.answer",
+  "pk": 8,
+  "fields": {
+    "poll": 20,
+    "choice": 2,
+    "created_at": "2020-08-30T19:19:02.412Z"
+  }
+},
+{
+  "model": "webapp.answer",
+  "pk": 9,
+  "fields": {
+    "poll": 20,
+    "choice": 2,
+    "created_at": "2020-08-30T19:19:02.413Z"
+  }
+},
+{
+  "model": "webapp.answer",
+  "pk": 10,
+  "fields": {
+    "poll": 20,
+    "choice": 3,
+    "created_at": "2020-08-30T19:19:02.413Z"
+  }
+},
+{
+  "model": "webapp.answer",
+  "pk": 11,
+  "fields": {
+    "poll": 20,
+    "choice": 2,
+    "created_at": "2020-08-30T19:19:02.413Z"
+  }
+},
+{
+  "model": "webapp.answer",
+  "pk": 12,
+  "fields": {
+    "poll": 20,
+    "choice": 4,
+    "created_at": "2020-08-30T19:19:02.414Z"
+  }
+},
+{
+  "model": "webapp.answer",
+  "pk": 13,
+  "fields": {
+    "poll": 20,
+    "choice": 3,
+    "created_at": "2020-08-30T19:19:02.414Z"
+  }
+},
+{
+  "model": "webapp.answer",
+  "pk": 14,
+  "fields": {
+    "poll": 20,
+    "choice": 2,
+    "created_at": "2020-08-30T19:19:02.414Z"
+  }
+},
+{
+  "model": "webapp.answer",
+  "pk": 15,
+  "fields": {
+    "poll": 20,
+    "choice": 1,
+    "created_at": "2020-08-30T19:19:02.415Z"
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
