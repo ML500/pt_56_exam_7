@@ -15,6 +15,10 @@
                 {% include 'partial/form_fields/multiple_check.html' %}
             {% elif widget_type == 'checkboxselectmultiple' %}
                 {% include 'partial/form_fields/multiple_check.html' %}
+            {% elif widget_type == 'fileinput' %}
+                {% include 'partial/form_fields/file.html' %}
+            {% elif widget_type == 'clearablefileinput' %}
+                {% include 'partial/form_fields/file.html' %}
             {% else %}
                 {% include 'partial/form_fields/default.html' %}
             {% endif %}
