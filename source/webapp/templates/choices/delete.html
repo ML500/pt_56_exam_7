@@ -7,7 +7,7 @@
 {% block title %}Удалить вариант ответа{% endblock %}
 
 {% block content %}
-    <h1>Удалить опрос</h1>
+    <h1>Удалить вариант ответа</h1>
     <p>Вы уверены, что хотите удалить вариант ответа: "{{ choice }}" к опросу "{{ choice.poll }}"?</p>
     <form action="{% url 'choice_delete' choice.pk %}" method="post">
         {% csrf_token %}
