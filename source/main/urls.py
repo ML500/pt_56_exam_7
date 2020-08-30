@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from webapp.models import Poll, Choice
+from webapp.models import Poll, Choice, Answer
 from webapp import views
 
 
@@ -55,3 +55,4 @@ urlpatterns = [
 
 urlpatterns += make_crud_patterns(Poll, views, is_index=True)
 urlpatterns += make_crud_patterns(Choice, views, actions=['create', 'update', 'delete'], create_related=Poll)
+urlpatterns += make_crud_patterns(Answer, views, actions=['create'], create_related=Poll)

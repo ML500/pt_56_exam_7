@@ -15,6 +15,7 @@
                         <a href="{% url 'poll_update' poll.pk %}" class="card-link">Обновить</a>
                         <a href="{% url 'poll_delete' poll.pk %}" class="card-link">Удалить</a>
                         <a href="{% url 'choice_create' poll.pk %}" class="card-link">Создать вариант ответа</a>
+                        <a href="{% url 'answer_create' poll.pk %}" class="card-link">Пройти опрос</a>
                     </div>
                 </div>
             </div>
