@@ -10,10 +10,10 @@
             <div class="col col-12 col-md-6 col-xl-4">
                 <div class="card my-3">
                     <div class="card-body">
-                        <h3 class="card-title h5"><a href="#">{{ poll.text }}</a></h3>
+                        <h3 class="card-title h5"><a href="{% url 'poll_detail' poll.pk %}">{{ poll.text }}</a></h3>
                         <h6 class="card-subtitle my-3 text-muted">Создан: {{ poll.created_at|date:"Y-m-d H:i:s" }}</h6>
-                        <a href="#" class="card-link">Edit</a>
-                        <a href="#" class="card-link">Delete</a>
+                        <a href="{% url 'poll_update' poll.pk %}" class="card-link">Обновить</a>
+                        <a href="{% url 'poll_delete' poll.pk %}" class="card-link">Удалить</a>
                     </div>
                 </div>
             </div>

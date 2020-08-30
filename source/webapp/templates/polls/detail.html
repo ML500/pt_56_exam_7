@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Опрос{% endblock %}
+
+{% block menu %}
+    <li class="nav-item"><a href="{% url 'poll_update' poll.pk %}" class="nav-link">Обновить</a></li>
+    <li class="nav-item"><a href="{% url 'poll_delete' poll.pk %}" class="nav-link">Удалить</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="card my-3">
+        <div class="card-body">
+            <h3 class="card-title h5">{{ poll.text }}</h3>
+            <h6 class="card-subtitle my-3 text-muted">Создан: {{ poll.created_at|date:"Y-m-d H:i:s" }}</h6>
+        </div>
+    </div>
+{% endblock %}
