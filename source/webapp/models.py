@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Count, F, ExpressionWrapper
 from django.urls import reverse
 
 
@@ -11,6 +12,15 @@ class Poll(models.Model):
 
     def get_absolute_url(self):
         return reverse('poll_detail', kwargs={'pk': self.pk})
+
+    def get_answers_count(self):
+        return self.answers.count()
+
+    def get_choices_with_stats(self):
+        total_answers = self.get_answers_count()
+        answer_counted = self.choices.annotate(answers_count=Count('answers'))
+        expr = ExpressionWrapper(F('answers_count') / float(total_answers) * 100, output_field=models.FloatField())
+        return answer_counted.annotate(answer_percent=expr)
 
     class Meta:
         verbose_name = 'Опрос'

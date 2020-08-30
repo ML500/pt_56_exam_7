@@ -15,7 +15,7 @@
             <h1 class="card-title h3">{{ poll.text }}</h1>
             <p class="card-subtitle my-3 text-muted">Создан: {{ poll.created_at|date:"Y-m-d H:i:s" }}</p>
 
-            {% with poll.choices.all as choices %}
+            {% with poll.get_choices_with_stats as choices %}
                 {% if choices %}
                     <h3 class="h5">Варианты ответа:</h3>
                     <ul>
@@ -23,16 +23,19 @@
                             <li>
                                 {{ choice.text }} |
                                 <a href="{% url 'choice_update' choice.pk %}">Обновить</a>
-                                <a href="{% url 'choice_delete' choice.pk %}">Удалить</a>
+                                <a href="{% url 'choice_delete' choice.pk %}">Удалить</a> |
+                                {{ choice.answers_count }} ответов
+                                ({{ choice.answer_percent|floatformat:2 }}% от общего числа)
                             </li>
                         {% endfor %}
                     </ul>
+                    <p class="card-text">Всего ответов: {{ poll.get_answers_count }}</p>
                 {% else %}
-                    <h3 class="h5">Нет вариантов ответа</h3>
+                    <p class="card-text">Нет вариантов ответа</p>
                 {% endif %}
             {% endwith %}
 
-            <h3 class="h5">Добавить вариант ответа:</h3>
+            <h3 class="h5 my-3">Добавить вариант ответа:</h3>
             {% url 'choice_create' poll.pk as action_url %}
             {% include 'partial/form.html' with action_url=action_url form_method='post' %}
         </div>
