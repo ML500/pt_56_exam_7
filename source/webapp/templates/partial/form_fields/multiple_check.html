@@ -1,0 +1,14 @@
+{% extends 'partial/form_fields/default.html' %}
+
+{% block after_label %}
+    {% for key, value in field.field.choices %}
+        <div class="form-check">
+            <input id="id_{{ field.name }}_{{ forloop.counter0 }}" name="{{ field.name }}"
+                   type="{{ field.field.widget.input_type }}" value="{{ key }}"
+                   class="form-check-input{% if field.errors %} is-invalid{% endif %}"
+                   {% if key == field.value %}checked{% endif %}/>
+            <label for="id_{{ field.name }}_{{ forloop.counter0 }}"
+                   class="form-check-label">{{ value }}</label>
+        </div>
+    {% endfor %}
+{% endblock %}

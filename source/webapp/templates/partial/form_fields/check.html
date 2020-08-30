@@ -1,0 +1,7 @@
+{% extends 'partial/form_fields/default.html' %}
+{% load widget_tweaks %}
+
+{% block group_class %}form-check{% endblock %}
+{% block before_label %}{{ field|add_class:'form-check-input'|add_error_class:'is-invalid' }}{% endblock %}
+{% block label_class %}form-check-label{% endblock %}
+{% block after_label %}{% endblock %}

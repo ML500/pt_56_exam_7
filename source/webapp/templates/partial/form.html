@@ -1,14 +1,25 @@
+{% load widget_tweaks %}
+
 <form action="{{ action_url }}" method="{{ form_method }}">
     {% csrf_token %}
 
     {% for error in form.non_field_errors %}
-        <p class="error">{{ error }}</p>
+        <p class="form-text text-danger mb-2">{{ error }}</p>
     {% endfor %}
 
     {% for field in form %}
-        {% include 'partial/form_field.html' %}
+        {% with field|widget_type as widget_type %}
+            {% if widget_type == 'checkboxinput' %}
+                {% include 'partial/form_fields/check.html' %}
+            {% elif widget_type == 'radioselect' %}
+                {% include 'partial/form_fields/multiple_check.html' %}
+            {% elif widget_type == 'checkboxselectmultiple' %}
+                {% include 'partial/form_fields/multiple_check.html' %}
+            {% else %}
+                {% include 'partial/form_fields/default.html' %}
+            {% endif %}
+        {% endwith %}
     {% endfor %}
 
-    <br/>
-    <input type="submit" value="{{ button_text|default:"Submit" }}"/>
+    <button type="submit" class="btn btn-primary">{{ button_text|default:"Submit" }}</button>
 </form>
