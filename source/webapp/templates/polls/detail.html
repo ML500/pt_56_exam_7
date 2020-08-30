@@ -26,6 +26,10 @@
                     <li>Нет вариантов ответа</li>
                 {% endfor %}
             </ul>
+
+            <h3 class="h5">Добавить вариант ответа:</h3>
+            {% url 'choice_create' poll.pk as action_url %}
+            {% include 'partial/form.html' with action_url=action_url form_method='post' %}
         </div>
     </div>
 {% endblock %}
