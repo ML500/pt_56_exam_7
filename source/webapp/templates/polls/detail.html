@@ -5,13 +5,27 @@
 {% block menu %}
     <li class="nav-item"><a href="{% url 'poll_update' poll.pk %}" class="nav-link">Обновить</a></li>
     <li class="nav-item"><a href="{% url 'poll_delete' poll.pk %}" class="nav-link">Удалить</a></li>
+    <li class="nav-item"><a href="{% url 'choice_create' poll.pk %}" class="nav-link">Создать вариант ответа</a></li>
 {% endblock %}
 
 {% block content %}
     <div class="card my-3">
         <div class="card-body">
-            <h3 class="card-title h5">{{ poll.text }}</h3>
-            <h6 class="card-subtitle my-3 text-muted">Создан: {{ poll.created_at|date:"Y-m-d H:i:s" }}</h6>
+            <h1 class="card-title h3">{{ poll.text }}</h1>
+            <p class="card-subtitle my-3 text-muted">Создан: {{ poll.created_at|date:"Y-m-d H:i:s" }}</p>
+            
+            <h3 class="h5">Варианты ответа:</h3>
+            <ul>
+                {% for choice in poll.choices.all %}
+                    <li>
+                        {{ choice.text }} |
+                        <a href="{% url 'choice_update' choice.pk %}">Обновить</a>
+                        <a href="{% url 'choice_delete' choice.pk %}">Удалить</a>
+                    </li>
+                {% empty %}
+                    <li>Нет вариантов ответа</li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 {% endblock %}

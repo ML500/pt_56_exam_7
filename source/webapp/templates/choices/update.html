@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Обновить вариант ответа{% endblock %}
+
+{% block menu %}
+    <li class="nav-item"><a href="{% url 'poll_detail' choice.poll.pk %}" class="nav-link">Назад</a></li>
+{% endblock %}
+
+{% block content %}
+    <h1>Обновить вариант ответа</h1>
+    
+    {% url 'choice_update' choice.pk as action_url %}
+    {% include 'partial/form.html' with action_url=action_url form_method='post' %}
+{% endblock %}

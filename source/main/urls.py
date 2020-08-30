@@ -16,11 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from webapp.models import Poll
+from webapp.models import Poll, Choice
 from webapp import views
 
 
-def make_crud_patterns(model, views_module, is_index=False, actions=None, prefix=''):
+def make_crud_patterns(model, views_module, is_index=False, actions=None, prefix='', create_related=None):
     patterns = []
     path_templates = {
         'list': '{}s/list/',
@@ -29,6 +29,9 @@ def make_crud_patterns(model, views_module, is_index=False, actions=None, prefix
         'update': '{}/<int:pk>/update/',
         'delete': '{}/<int:pk>/delete/',
     }
+    if create_related:
+        related_name = create_related.__name__.lower()
+        path_templates['create'] = '{}/<int:pk>/create-{{}}/'.format(related_name)
     if not actions:
         actions = ['list', 'detail', 'create', 'update', 'delete']
     if is_index and 'list' in actions:
@@ -51,3 +54,4 @@ urlpatterns = [
 ]
 
 urlpatterns += make_crud_patterns(Poll, views, is_index=True)
+urlpatterns += make_crud_patterns(Choice, views, actions=['create', 'update', 'delete'], create_related=Poll)

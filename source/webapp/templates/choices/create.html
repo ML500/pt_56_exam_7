@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
-{% block title %}Обновить опрос{% endblock %}
+{% block title %}Создать вариант ответа{% endblock %}
 
 {% block menu %}
     <li class="nav-item"><a href="{% url 'poll_detail' poll.pk %}" class="nav-link">Назад</a></li>
 {% endblock %}
 
 {% block content %}
-    <h1>Обновить опрос</h1>
+    <h1>Создать вариант ответа к опросу "{{ poll }}"</h1>
     
-    {% url 'poll_update' poll.pk as action_url %}
+    {% url 'choice_create' poll.pk as action_url %}
     {% include 'partial/form.html' with action_url=action_url form_method='post' %}
 {% endblock %}
