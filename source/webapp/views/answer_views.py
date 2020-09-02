@@ -36,6 +36,12 @@ class AnswerCreateView(CreateView):
         kwargs['poll'] = self.poll
         return super().get_context_data(**kwargs)
 
+    # как вариант, вместо передачи в choices в конструктор формы
+    # def get_form(self, form_class=None):
+    #     form = super().get_form(form_class=form_class)
+    #     form.fields['choice'].queryset = self.poll.choices.all()
+    #     return form
+
     def form_valid(self, form):
         form.instance.poll = self.poll
         return super().form_valid(form)
