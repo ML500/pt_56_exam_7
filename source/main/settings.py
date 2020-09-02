@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
-    'pagination',
+    'pagination',  # пагинация
     'webapp',
 ]
 
@@ -69,7 +69,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'webapp.context_processors.search_form',
-                'pagination.context_processors.page_display_modes',
+                'pagination.context_processors.page_display_modes',  # пагинация
             ],
         },
     },
@@ -128,7 +128,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-# Pagination (Custom)
+# Pagination (Custom)  # пагинация
 
 # PAGINATION = {
 #     'end_pages': 3,
