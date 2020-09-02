@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# для работы переменной debug в шаблонах
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
